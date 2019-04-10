@@ -27,3 +27,73 @@ For this project, we'll use three data sets:
 * [http.zip](https://github.com/parrt/msds689/blob/master/projects/iforest/http.zip)       
 
 
+## Visualization of normal versus anomaly separation    
+
+<center>
+<table border="0">
+<tr><td>http.csv, 200 trees, 99% desired TPR</td></tr>
+<tr>
+<td border=0>
+<a href="images/http-200-99.svg"><img src="images/http-200-99.svg" width="350"></a>
+</tr>
+</table>
+</center>
+
+<table border="0">
+<tr><td>creditcard.csv, 200 trees, 80% desired TPR</td><td>creditcard.csv, 200 trees, 90% desired TPR</td></tr>
+<tr>
+<td border=0>
+<a href="images/creditcard-200-80.svg"><img src="images/creditcard-200-80.svg" width="350"></a>
+<td border=0>
+<a href="images/creditcard-200-90.svg"><img src="images/creditcard-200-90.svg" width="350"></a>
+</tr>
+</table>
+
+<table border="0">
+<tr><td> cancer, 300 trees, 70% desired TPR</td><td> cancer, 300 trees, 80% desired TPR</td></tr>
+<tr>
+<td border=0>
+<a href="images/cancer-300-70.svg"><img src="images/cancer-300-70.svg" width="350"></a>
+<td border=0>
+<a href="images/cancer-300-80.svg"><img src="images/cancer-300-80.svg" width="350"></a>
+</tr>
+</table>
+
+## Algorithm
+
+extracted from the Liu *et al* paper:
+
+<table border="0">
+<tr>
+<td width="50%" valign="top"><img src="images/iForest.png" width="350"></td><td width="50%" valign="top"><img src="images/iTree.png" width="350"></td>
+</tr>
+<tr>
+<td valign="top">
+<img src="images/PathLength.png" width="350">
+</td>
+<td valign="top">
+Please use this version of average path length <tt>c()</tt>, not the one in the original paper:<br>
+<img src="images/avgPathLength.png" width="320">
+
+<p>Then finally here's the scoring formula:<br>
+
+<img src="images/score.png" width="150">
+
+<p>where "<i>H(i)</i> is the harmonic number and it can be estimated by <i>ln(i)</i> + 0.5772156649 (Euler’s constant)."
+</td>
+</tr>
+</table>
+
+
+## Requirement    
+- numpy  
+- pandas   
+- sklearn   
+
+
+## Usage    
+run the `score.py` file with `-noise` and `-improved`     
+
+
+## Credits      
+- [msds689-iforest](https://github.com/weiweisf/msds689/tree/master/projects/iforest). Thanks to Terence for introducing such a great algorithm and providing the great materials.      
